@@ -6,6 +6,9 @@ Website for viewing covid-19 data worldwide in realtime (only prioritize mobile 
 
 This was made use of [React Js](https://reactjs.org/). React js is a javascript framework created by the facebook team.
 
+### API
+For Apis covid19 data I use [this](https://covid19.mathdro.id/) and for news I use [this](https://newsapi.org/)
+
 ## How to Install
 Make sure you have installed Node js and NPM on your computer. Recommended for node JS version 10 and above. 
 
