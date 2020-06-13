@@ -2,7 +2,7 @@
 
 ![Alt text](src/assets/image/image-forgithub.png?raw=true "Title")
 
-Website for viewing covid-19 data worldwide in realtime (only prioritize mobile display)
+Website for viewing covid-19 data worldwide in realtime (only prioritize mobile display) [demo](https://covid19090101.netlify.app/)
 
 This was made use of [React Js](https://reactjs.org/). React js is a javascript framework created by the facebook team.
 
