@@ -1,0 +1,40 @@
+.donut {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 0.3rem solid rgba(255, 255, 255, 0.44);
+    border-top-color: #f4f4f4;
+    animation: 1.5s spin infinite linear;
+  
+    &.multi {
+      border-bottom-color: #f4f4f4;
+    }
+}
+  
+@keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+
+.country-loader{
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+
+  .donut {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 0.3rem solid rgba(216, 216, 216, 0.664);
+      border-top-color: #303960;
+      animation: 1.5s spin infinite linear;
+    
+      &.multi {
+        border-bottom-color: #303960;
+      }
+  }
+}

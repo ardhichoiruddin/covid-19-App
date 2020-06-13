@@ -1,0 +1,104 @@
+.data{
+    position: relative;
+    z-index: 20;
+    top: 5.5rem;
+
+    &--title{
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #fff;
+
+        span{
+            color: #ffde17;
+        }
+    }
+
+
+    &--box{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+
+
+        &__inner{
+            flex-basis: 48.5%;
+            padding: 1rem;
+            background-color: #6E7490;
+            color: #fff;
+            border-radius: 8px;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0px 4px 31px 0px rgba(0,0,0,0.15);
+            max-width: 48.5%;
+
+            &.top{
+                flex-basis: 100%;
+                width: 100%;
+                flex-direction: row;
+                max-width: 100%;
+
+                > div{
+                    &:nth-child(1){
+                        flex-basis: 70%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        h3{
+                            font-size: 20px;
+                        }
+                    }
+
+                    &:nth-child(2){
+                        flex-basis: 30%;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &.pencegahan{
+                background-color: #FF9234;
+
+                .btn-pencegahan{
+                    padding: 0.25rem;
+                    border-radius: 6px;
+                    border: 1.5px solid #fff;
+                    background-color: transparent;
+                    color: #fff;
+                    margin-top: 0.4rem;
+                }
+
+                .pencegahan-image{
+                    width: 100%;
+                }
+            }
+
+            p{
+                font-size: 14px;
+                font-weight: 400;
+                margin-bottom: 0.25rem;
+            }
+
+            h3{
+                font-size: 24px;
+                font-weight: 800;
+                letter-spacing: 0.031em;
+            }
+
+            &:nth-child(1){
+                margin-bottom: 0.7rem;
+            }
+
+            &:nth-child(2){
+                margin-bottom: 0.7rem;
+            }
+        }
+    }
+}

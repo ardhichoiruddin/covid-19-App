@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './assets/css/main.css';
+
+import BgImage from './assets/image/bg-image.png';
+import Header from './components/Layouts/Header';
+import DataCovid from './components/DataCovid/DataCovid';
+import NewsHealth from './components/NewsHealth/NewsHealth';
+import SelectCountry from './components/SelectCountry/SelectCountry';
+import { Context } from './store/Context/Context';
+
 
 function App() {
+
+  const [countryData, setCountryData] = useState([]);
+  const [changeCountry, setChangeCountry] = useState('indonesia');
+  const [countryId, setCountryId] = useState('id')
+  const [boxCountry, setBoxCountry] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Context.Provider value={{
+          countryData, 
+          setCountryData, 
+          changeCountry, 
+          setChangeCountry,
+          boxCountry,
+          setBoxCountry,
+          countryId,
+          setCountryId
+        }}>
+          
+        <div className="head-background">
+          <Header/>
+          <img src={BgImage} className="bg-image" alt=""/>
+          <div className="container">
+            <DataCovid/>
+          </div>
+        </div>
+        <NewsHealth/>
+        <SelectCountry/>
+      </Context.Provider>
+      
+    </>
   );
 }
 
