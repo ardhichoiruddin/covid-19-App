@@ -1,4 +1,4 @@
-# Covid-19 Info (v. 0.0.1)
+# Covid-19 Info (v. 0.0.2)
 
 ![Alt text](src/assets/image/image-forgithub.png?raw=true "Title")
 
@@ -8,6 +8,9 @@ This was made use of [React Js](https://reactjs.org/). React js is a javascript 
 
 ### API
 For Apis covid19 data I use [this](https://covid19.mathdro.id/) and for news I use [this](https://newsapi.org/)
+
+## What New?
+* Adding Search Autocomplete for searching country
 
 ## How to Install
 Make sure you have installed Node js and NPM on your computer. Recommended for node JS version 10 and above. 
