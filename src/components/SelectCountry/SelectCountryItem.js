@@ -1,59 +1,40 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
+import SelectSearch from 'react-select-search';
 import { Context } from '../../store/Context/Context';
-import CountryLoader from '../ContentLoader/CountryLoader';
 
 
-const SelectCountryItem = () =>{
 
-    const { 
-        setChangeCountry , 
-        countryData, 
-        setCountryData,
-        setBoxCountry,
-        setCountryId
+const SelectCountryItem = ({ data }) => {
+
+
+    const {
+        changeCountry,
+        setChangeCountry,
+        setBoxCountry
     } = useContext(Context);
 
-    const [loadingData, setLoadingData] = useState(true);
-    
-  
 
-    const selectCountry = (country, id) =>{
-        if(id){
-            setChangeCountry(country);
-            setCountryId(id.toLowerCase())
+    const selectCountry = (e) => {
+        if(e){
+            setChangeCountry(e.toLowerCase());
             setBoxCountry(false)
         }
     }
 
-    useEffect(() => {
-        
-        const fetchCountry = () =>{
-            return axios.get('https://covid19.mathdro.id/api/countries/').then(res =>{
-                setCountryData(res.data.countries);
-                setLoadingData(false)
-            })
-        }
-
-        if(countryData.length <= 0){
-            fetchCountry();
-        }else{
-            setLoadingData(false);
-        }
-
-    },[])
-
-    return(
+    return (
         <>
-            {
-                loadingData ? <CountryLoader/> : ''
-            }
-
-            {
-                countryData.map((country, idx) =>(
+            <SelectSearch 
+                options={data} 
+                search 
+                printOptions="always" 
+                onChange={(e) => selectCountry(e)} 
+                value={changeCountry}
+                placeholder="Tulis negara yang anda cari" />
+            {/* {
+                data.map((country, idx) =>(
                     <li key={idx} onClick={() => selectCountry(country.name, country.iso2)}><button>{ country.name }</button></li>
                 ))
-            }
+            } */}
         </>
     )
 }

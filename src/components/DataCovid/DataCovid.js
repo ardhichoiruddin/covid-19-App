@@ -16,7 +16,7 @@ function DataCovid() {
         data : {}
     })
 
-    const { changeCountry } = useContext(Context);
+    const { changeCountry, countryData } = useContext(Context);
     const [covidDataLoader, setCovidDataLoader] = useState(true);
 
 
@@ -25,6 +25,13 @@ function DataCovid() {
             return new Intl.NumberFormat(['ban', 'id']).format(value);
         }
     };
+
+    const selectCountry = (country) =>{
+        const countryOption = countryData.find(cntry => cntry.value === country.toUpperCase());
+        const { name } = {...countryOption};
+        
+        return name;
+    }
 
     useEffect(() => {
 
@@ -39,7 +46,7 @@ function DataCovid() {
             });
     
         }
-
+        
         fetchData();
         
     }, [changeCountry]);
@@ -54,11 +61,13 @@ function DataCovid() {
     const Positif = <> <p>Positif</p><h3>{numberFormat(confirmed.value)}</h3></>
     const Meninggal = <> <p>Meninggal</p><h3>{numberFormat(deaths.value)}</h3></>
     const Sembuh = <> <p>Sembuh</p><h3>{numberFormat(recovered.value)}</h3></>
+
+    const nameCountry = selectCountry(changeCountry);
     
     return (
         <>
             <div className="data">
-                <h1 className="data--title">Data Terbaru Covid-19 di <span>{changeCountry}</span></h1>
+                <h1 className="data--title">Data Terbaru Covid-19 di <span>{ nameCountry ? nameCountry : "indonesia" }</span></h1>
                 <div className="data--box top">
                     <div className="data--box__inner top">
                         <div>

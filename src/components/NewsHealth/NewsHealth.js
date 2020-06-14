@@ -9,7 +9,7 @@ import ArticleNotFound from '../404/ArticleNotFound';
 
 function NewsHealth() {
 
-    const { changeCountry, countryId } = useContext(Context);
+    const { changeCountry } = useContext(Context);
 
     const [newsData, setNewsData] = useState([]);
     const [newsLoading, setNewsLoading] = useState(true);
@@ -23,7 +23,7 @@ function NewsHealth() {
             setNewsData([])
     
             setTimeout(() =>{
-                return axios.get(`https://newsapi.org/v2/top-headlines?language=en&country=${countryId}&category=health&apiKey=0f428063994d44b488fe222c96848b6b`)
+                return axios.get(`https://newsapi.org/v2/top-headlines?language=en&country=${changeCountry}&category=health&apiKey=0f428063994d44b488fe222c96848b6b`)
                         .then(res =>{
     
                             const { data : { articles } } = res;
@@ -48,7 +48,7 @@ function NewsHealth() {
         fetchNews();
 
 
-    },[countryId]);
+    },[changeCountry]);
 
 
     return (

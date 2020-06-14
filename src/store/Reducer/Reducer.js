@@ -1,4 +1,4 @@
-// import React from 'react';
+
 
 export const Reducer = (state, action) =>{
 
@@ -7,6 +7,7 @@ export const Reducer = (state, action) =>{
             return {
                 ...state, data : action.data
             }
+            
         default :
             return state;
     }

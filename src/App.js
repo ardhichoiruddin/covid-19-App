@@ -13,7 +13,6 @@ function App() {
 
   const [countryData, setCountryData] = useState([]);
   const [changeCountry, setChangeCountry] = useState('indonesia');
-  const [countryId, setCountryId] = useState('id')
   const [boxCountry, setBoxCountry] = useState(false);
 
   return (
@@ -24,9 +23,7 @@ function App() {
           changeCountry, 
           setChangeCountry,
           boxCountry,
-          setBoxCountry,
-          countryId,
-          setCountryId
+          setBoxCountry
         }}>
           
         <div className="head-background">
