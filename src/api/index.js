@@ -20,11 +20,10 @@ export const fetchData = async(changeCountry) =>{
 export const FetchNews = async(changeCountry) =>{
     const url = 'https://newsapi.org/v2/top-headlines?language=en';
     const apiKey = '0f428063994d44b488fe222c96848b6b';
-
+    
     try{
 
         const { data : { articles } }  = await axios.get(`${url}&country=${changeCountry}&category=health&apiKey=${apiKey}`);
-
         return articles;
                    
 
