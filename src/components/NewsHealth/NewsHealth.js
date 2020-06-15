@@ -22,7 +22,9 @@ function NewsHealth() {
 
         (async() =>{
 
+            setNewsData([])
             setNewsLoading(true)
+            
             const data = await FetchNews(changeCountry)
 
             if(data.length > 0){
@@ -32,12 +34,13 @@ function NewsHealth() {
                 setArticleNotFound(false);
 
             }else{
-                
+
                 setNewsData([])
                 setArticleNotFound(true);
                 setNewsLoading(false);
 
             }
+
             
         })()
 
