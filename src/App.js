@@ -12,7 +12,7 @@ import { Context } from './store/Context/Context';
 function App() {
 
   const [countryData, setCountryData] = useState([]);
-  const [changeCountry, setChangeCountry] = useState('indonesia');
+  const [changeCountry, setChangeCountry] = useState('id');
   const [boxCountry, setBoxCountry] = useState(false);
 
   return (
