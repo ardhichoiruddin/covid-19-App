@@ -6,6 +6,8 @@ import NewsLoader from '../ContentLoader/NewsLoader';
 import NewsHealthItem from './NewsHealthItem';
 import ArticleNotFound from '../404/ArticleNotFound';
 
+const url = 'https://newsapi.org/v2/top-headlines?language=en';
+const apiKey = '0f428063994d44b488fe222c96848b6b';
 
 function NewsHealth() {
 
@@ -23,7 +25,7 @@ function NewsHealth() {
             setNewsData([])
     
             setTimeout(() =>{
-                return axios.get(`https://newsapi.org/v2/top-headlines?language=en&country=${changeCountry}&category=health&apiKey=0f428063994d44b488fe222c96848b6b`)
+                return axios.get(`${url}&country=${changeCountry}&category=health&apiKey=${apiKey}`)
                         .then(res =>{
     
                             const { data : { articles } } = res;
