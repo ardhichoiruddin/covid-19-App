@@ -1,66 +1,57 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+
+import { FetchNews } from '../../api/index';
 import { Context } from '../../store/Context/Context';
+import { CountryTransform } from '../../utils/CountryTranform';
 
 import NewsLoader from '../ContentLoader/NewsLoader';
 import NewsHealthItem from './NewsHealthItem';
 import ArticleNotFound from '../404/ArticleNotFound';
 
-const url = 'https://newsapi.org/v2/top-headlines?language=en';
-const apiKey = '0f428063994d44b488fe222c96848b6b';
 
 function NewsHealth() {
 
-    const { changeCountry } = useContext(Context);
+    const { changeCountry, countryData } = useContext(Context);
 
     const [newsData, setNewsData] = useState([]);
     const [newsLoading, setNewsLoading] = useState(true);
     const [articleNotFound, setArticleNotFound] = useState(false);
 
     useEffect(() => {
-        const fetchNews = () =>{
-        
-            setNewsLoading(true);
-            setArticleNotFound(false)
-            setNewsData([])
-    
-            setTimeout(() =>{
-                return axios.get(`${url}&country=${changeCountry}&category=health&apiKey=${apiKey}`)
-                        .then(res =>{
-    
-                            const { data : { articles } } = res;
-    
-                            if(articles.length > 0){
-                                setNewsData(articles);
-                                setNewsLoading(false);
-                                setArticleNotFound(false);
-                            }else{
-                                setArticleNotFound(true);
-                                setNewsLoading(false);
-                            }
-    
-                        }).catch(err =>{
-                            console.log(err);
-                        });
-            },3000);
-           
-        }
 
+        (async() =>{
 
-        fetchNews();
+            setNewsLoading(true)
+            const data = await FetchNews(changeCountry)
+
+            if(data.length > 0){
+
+                setNewsData(data);
+                setNewsLoading(false);
+                setArticleNotFound(false);
+
+            }else{
+
+                setArticleNotFound(true);
+                setNewsLoading(false);
+
+            }
+            
+        })()
 
 
     },[changeCountry]);
 
+    const countryName = CountryTransform(changeCountry, countryData);
 
     return (
         <>
             <div className="news-health">
                 <div className="container">
-                    <h2 className="news-health--title">Informasi Terbaru Kesehatan di {changeCountry}</h2>
+                    <h2 className="news-health--title">Informasi Terbaru Kesehatan di {countryName ? countryName : "Indonesia"}</h2>
                     <div className="mt-2">
                         {
-                            newsLoading ? <NewsLoader/> : ''
+                            (newsLoading ? <NewsLoader/> : '')
                         }
                         {
                             newsData.map((data, idx) =>(
@@ -68,7 +59,7 @@ function NewsHealth() {
                             ))
                         }
                         {
-                            articleNotFound ? <ArticleNotFound/> : ''
+                            (articleNotFound ? <ArticleNotFound/> : '')
                         }
 
                         <br/>
