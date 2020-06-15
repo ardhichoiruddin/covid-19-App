@@ -17,6 +17,7 @@ function NewsHealth() {
     const [newsLoading, setNewsLoading] = useState(true);
     const [articleNotFound, setArticleNotFound] = useState(false);
 
+
     useEffect(() => {
 
         (async() =>{
@@ -24,7 +25,7 @@ function NewsHealth() {
             setNewsLoading(true)
             const data = await FetchNews(changeCountry)
 
-            if(data.length > 0){
+            if(data.length >= 0){
 
                 setNewsData(data);
                 setNewsLoading(false);
