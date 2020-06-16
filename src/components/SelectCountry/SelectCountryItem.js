@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import SelectSearch from 'react-select-search';
+import { default as SelectSearch } from 'react-select-search';
 import { Context } from '../../store/Context/Context';
-
 
 
 const SelectCountryItem = ({ data }) => {

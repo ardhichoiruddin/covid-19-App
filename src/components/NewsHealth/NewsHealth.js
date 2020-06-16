@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import { FetchNews } from '../../api/index';
-import { Context } from '../../store/Context/Context';
-import { CountryTransform } from '../../utils/CountryTranform';
+import { FetchNews } from 'api/index';
+import { Context } from 'store/Context/Context';
+import { CountryTransform } from 'utils/CountryTranform';
 
-import NewsLoader from '../ContentLoader/NewsLoader';
-import NewsHealthItem from './NewsHealthItem';
-import ArticleNotFound from '../404/ArticleNotFound';
+import NewsLoader from 'components/ContentLoader/NewsLoader';
+import NewsHealthItem from 'components/NewsHealth/NewsHealthItem';
+import ArticleNotFound from 'components/404/ArticleNotFound';
 
 
 function NewsHealth() {

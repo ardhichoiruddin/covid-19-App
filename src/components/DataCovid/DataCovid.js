@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Context } from '../../store/Context/Context';
-import { CountryTransform  } from '../../utils/CountryTranform'
+import { Context } from 'store/Context/Context';
+import { CountryTransform  } from 'utils/CountryTranform'
 
-import { fetchData } from '../../api/index';
-import DataCovidItem from './DataCovidItem';
+import { fetchData } from 'api/index';
+import DataCovidItem from 'components/DataCovid/DataCovidItem';
 
 
 

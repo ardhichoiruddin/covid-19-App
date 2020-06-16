@@ -1,11 +1,11 @@
 import React from 'react';
 import Moment from 'react-moment';
 
-import { NumberFormat } from '../../utils/NumberFormat';
+import { NumberFormat } from 'utils/NumberFormat';
 
-import PencegahanIcon from '../../assets/image/pencegahan-icon.svg';
-import DataCovidLoader from '../ContentLoader/DataCovidLoader';
-import Flu from '../../assets/image/flu.svg';
+import PencegahanIcon from 'assets/image/pencegahan-icon.svg';
+import DataCovidLoader from 'components/ContentLoader/DataCovidLoader';
+import Flu from 'assets/image/flu.svg';
 
 
 const DataCovidItem = ({ lastUpdate, confirmed, deaths, recovered, nameCountry, covidDataLoader }) =>{

@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react';
-import { Context } from '../../store/Context/Context';
-import { FetchCountry } from '../../api/index';
+import { Context } from 'store/Context/Context';
+import { FetchCountry } from 'api/index';
 
-import SelectCountryItem from './SelectCountryItem';
+import SelectCountryItem from 'components/SelectCountry/SelectCountryItem';
 
 const SelectCountry = () => {
 
