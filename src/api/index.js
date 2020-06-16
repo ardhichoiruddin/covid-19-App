@@ -32,3 +32,18 @@ export const FetchNews = async(changeCountry) =>{
     }
    
 }
+
+
+export const FetchCountry = async() =>{
+    const url ='https://covid19.mathdro.id/api';
+
+    try{
+
+        const { data : { countries } } = await axios.get(`${url}/countries/`);
+        return countries;
+
+    }catch(error){
+      
+    }
+
+}

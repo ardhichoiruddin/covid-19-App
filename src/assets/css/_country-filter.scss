@@ -142,6 +142,7 @@
     background-color: rgba(0, 0, 0, 0.65);
     z-index: 400;
     animation : backdropAnimation 600ms cubic-bezier(.08,.82,.17,1);
+    transition: all 900ms ease-in;
 
 
     @keyframes backdropAnimation {

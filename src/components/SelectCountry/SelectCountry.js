@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
-import axios from 'axios';
 import { Context } from '../../store/Context/Context';
+import { FetchCountry } from '../../api/index';
 
 import SelectCountryItem from './SelectCountryItem';
 
@@ -18,15 +18,17 @@ const SelectCountry = () => {
     }
 
     useEffect(() => {
-        
-        const fetchCountry = () =>{
-            return axios.get('https://covid19.mathdro.id/api/countries/').then(res =>{
-                const { data : { countries }} = res;
-                setCountryData(newObjectKey(countries));
-            })
-        }
 
-        fetchCountry();
+        (async() =>{
+
+            const data = await FetchCountry();
+           
+            if(data && data.length > 0){
+                setCountryData(newObjectKey(data));
+            }
+
+        })()
+        
        
     },[])
 

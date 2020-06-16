@@ -27,8 +27,8 @@ function NewsHealth() {
 
             const data = await FetchNews(changeCountry)
  
-            if(data && data.length > 0){
-                
+            if(data && data.length !== 0){
+
                 setNewsData(data)
                 setNewsLoading(false);
                 setArticleNotFound(false);
